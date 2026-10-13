@@ -247,15 +247,16 @@
   var vm = doc.getElementById("vmodal"), vmV = doc.getElementById("vm-video"), vmI = doc.getElementById("vm-img");
   var vmBack = null;
   /* галереи документов: лицензия (10 страниц) и документы врача (5) */
-  var GAL = { lic: { n: 10, path: "assets/img/license-" }, doc: { n: 5, path: "assets/img/doc-" } };
+  var GAL = { lic: { p: [1, 3, 5, 7, 9], path: "assets/img/license-" }, doc: { p: [1, 2, 3, 4, 5], path: "assets/img/doc-" } };
   var gal = GAL.lic, vmPage = 0, vmGallery = false;
   var vmPrev = vm ? vm.querySelector(".vm-prev") : null, vmNext = vm ? vm.querySelector(".vm-next") : null, vmCount = vm ? vm.querySelector(".vm-count") : null;
   function vmShowPage(i) {
-    vmPage = clamp(i, 0, gal.n - 1);
-    vmI.src = gal.path + (vmPage + 1) + ".webp";
-    vmCount.textContent = (vmPage + 1) + " / " + gal.n;
-    vmPrev.disabled = vmPage === 0; vmNext.disabled = vmPage === gal.n - 1;
-    var nx = new Image(); if (vmPage + 1 < gal.n) nx.src = gal.path + (vmPage + 2) + ".webp";
+    var n = gal.p.length;
+    vmPage = clamp(i, 0, n - 1);
+    vmI.src = gal.path + gal.p[vmPage] + ".webp";
+    vmCount.textContent = (vmPage + 1) + " / " + n;
+    vmPrev.disabled = vmPage === 0; vmNext.disabled = vmPage === n - 1;
+    var nx = new Image(); if (vmPage + 1 < n) nx.src = gal.path + gal.p[vmPage + 1] + ".webp";
   }
   function vmOpen(src, isImg, label, start) {
     if (!vm) return;

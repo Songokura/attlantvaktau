@@ -518,6 +518,21 @@ html[lang="kk"] .kick{letter-spacing:.12em}
 /* «лево-право»: герой R, физиолечение L, «С чем приходят» R, «Почему» L, врач R */
 @media (min-width:981px){
   .bt-tiles{order:-1}
-  .why-ph{order:1}.why-list{order:2}
 }
 @media (max-width:600px){.svc-ph{aspect-ratio:2/1}.svc-b{gap:8px}}
+
+/* как проходит: ролик процедуры слева, шаги справа */
+.kak{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(20px,3vw,40px);align-items:center}
+.kak-video{flex:none;width:100%}
+.kak-video img{aspect-ratio:4/5}
+.kak .steps{grid-template-columns:1fr 1fr}
+@media (max-width:900px){.kak{grid-template-columns:1fr}.kak-video img{aspect-ratio:16/11}}
+
+/* «лево-право» 13.10.2026: герой R, физио L, «С чем приходят» R, «Как проходит» L, «Почему» R, врач L */
+@media (min-width:981px){.vrach .docs{order:-1}}
+/* с чем приходят: жалобы слева, два фото справа */
+.bt-tiles{grid-column:span 6}
+.bt-model,.bt-mrt{grid-column:span 3}
+.bt-mrt img{flex:1 1 auto;min-height:0;height:100%;aspect-ratio:auto}
+@media (max-width:980px){.bt-model,.bt-mrt{grid-column:span 6}.bt-model img,.bt-mrt img{aspect-ratio:4/5;height:auto}.bt-tiles{grid-column:1/-1}}
+@media (max-width:600px){.kak .steps{grid-template-columns:1fr;gap:22px}}
