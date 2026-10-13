@@ -45,6 +45,7 @@ h3{font-weight:600}
 .sec::after{content:"";position:absolute;right:calc(max(var(--gut),calc((100vw - 1200px)/2 + 24px)) - 17px);top:clamp(64px,9vw,120px);width:35px;height:7px;border-radius:999px;pointer-events:none;background:color-mix(in srgb,var(--acc) 35%,transparent)}
 .sec-kontakty::before,.sec-kontakty::after,.sec-otzyvy::before,.sec-otzyvy::after{display:none}
 .sec>*{position:relative}
+@media (min-width:761px){.sec:not(.sec-otzyvy):not(.sec-kontakty) .head{padding-right:64px}}
 
 /* ---------- кнопки ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border:1px solid transparent;border-radius:var(--pill);font:600 15.5px/1 var(--ft);letter-spacing:.01em;white-space:nowrap;cursor:pointer;transition:transform .2s,background .2s,color .2s,border-color .2s;user-select:none}
@@ -147,7 +148,7 @@ body.menu-open{overflow:hidden}
 .pl-hero .col{--p:var(--stay);--sfin:1.28}
 #atlant .col img{--pos:50% 30%}
 #programma .col img{--pos:50% 45%}
-#massazh .col img{--pos:50% 45%}
+#massazh .col img{--pos:72% 45%}
 #fizio .col img{--pos:50% 40%}
 
 /* герой */
@@ -222,9 +223,16 @@ body.menu-open{overflow:hidden}
 .rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(var(--gut),calc((100vw - 1200px)/2));scroll-behavior:smooth;padding:4px max(var(--gut),calc((100vw - 1200px)/2)) 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .rail::-webkit-scrollbar{display:none}
 .rail:focus-visible{outline-offset:-2px}
-.rv-card{position:relative;flex:0 0 min(76vw,340px);scroll-snap-align:start;border-radius:var(--rad);overflow:hidden;background:var(--paper2);display:block}
-.rv-card img{aspect-ratio:4/5;width:100%;height:auto;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
-.rv-card:hover img{transform:scale(1.04)}
+.rv-card{position:relative;flex:0 0 min(70vw,300px);scroll-snap-align:start;border-radius:var(--rad);overflow:hidden;background:var(--paper2);display:block;padding:0;border:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.rv-card .rv-loop{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.rv-card .rv-loop.is-live{opacity:1}
+.rv-card:focus-visible{outline:2px solid var(--tealink);outline-offset:3px}
+.rv-card .rv-badge{position:absolute;right:14px;top:22px;z-index:2;padding:6px 10px;border-radius:999px;background:var(--teal);color:#fff;font:600 11.5px/1 var(--ft);letter-spacing:.06em;text-transform:uppercase}
+.rv-card img{aspect-ratio:9/16;width:100%;height:auto;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv-card:hover img,.rv-card:hover .rv-loop{transform:scale(1.04)}
+.rv-card .rv-loop{transition:opacity .5s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv-card:active{transform:scale(.985)}
+.rv-card{transition:transform .16s ease-out}
 .rv-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,47,54,.85) 0,rgba(13,47,54,.2) 45%,transparent 70%);pointer-events:none}
 .play{position:absolute;left:16px;top:16px;z-index:2;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
 .play svg{display:block;margin-left:2px}
@@ -233,6 +241,50 @@ body.menu-open{overflow:hidden}
 .rv-cap span{font-size:14.5px;color:#C3D8DC;line-height:1.4}
 .ig-row{margin-top:26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .nick{color:var(--mute);font-size:15px}
+
+/* ---------- лицензия ---------- */
+.lic{grid-column:1/-1;order:9;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:22px;padding:16px;border-radius:var(--rad);background:var(--deep2);border:1px solid var(--line);color:var(--fg);text-align:left;font:inherit;cursor:pointer;transition:background .2s,transform .16s ease-out}
+.lic:hover{background:var(--deep3)}
+.lic:active{transform:scale(.99)}
+.lic img{width:86px;height:auto;border-radius:4px;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.lic-t{display:flex;flex-direction:column;gap:4px}
+.lic-t b{font:600 clamp(18px,1.6vw,21px)/1.25 var(--fd)}
+.lic-t>span{font-size:15px;color:var(--fg2);line-height:1.45}
+.lic-t .lic-more{margin-top:6px;color:var(--mint2);font-weight:600;font-size:14.5px}
+.lic-t .lic-more::after{content:" →"}
+
+/* ---------- метод на видео ---------- */
+.sec-metod{background:var(--white)}
+.metod{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:center}
+.vframe{position:relative;border-radius:var(--rad);overflow:hidden;background:#0b2228;aspect-ratio:16/9;box-shadow:0 30px 60px -30px rgba(13,47,54,.45)}
+.vframe video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0b2228}
+.vframe.is-on video{object-fit:contain}
+.vplay{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;gap:14px;border:0;cursor:pointer;background:linear-gradient(to top,rgba(13,47,54,.55),rgba(13,47,54,.05) 60%);color:#fff;font:600 15px/1 var(--ft)}
+.vplay .play{position:static;width:76px;height:76px;transition:transform .2s ease-out}
+.vplay:hover .play{transform:scale(1.06)}
+.vplay:active .play{transform:scale(.96)}
+.vplay .vlen{padding:9px 14px;border-radius:999px;background:rgba(13,47,54,.7)}
+.vframe.is-on .vplay{display:none}
+.metod-pts{display:flex;flex-direction:column;gap:14px}
+.metod-pts li{padding:16px 18px 16px 20px;border-radius:var(--rad);background:var(--paper);position:relative;display:flex;flex-direction:column;gap:4px}
+.metod-pts li::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:2px;background:var(--teal)}
+.metod-pts b{font:600 18px/1.2 var(--fd)}
+.metod-pts span{font-size:15px;color:var(--ink2);line-height:1.45}
+@media (max-width:900px){.metod{grid-template-columns:1fr}.vplay .play{width:62px;height:62px}}
+
+/* ---------- окно просмотра ---------- */
+.vmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(6,22,26,.92);padding:56px 16px 24px;opacity:0;transition:opacity .22s ease-out}
+.vmodal.open{display:flex}
+.vmodal.show{opacity:1}
+.vm-box{transform:scale(.97);transition:transform .22s cubic-bezier(.2,.7,.2,1)}
+.vmodal.show .vm-box{transform:none}
+.vm-box video{display:block;height:min(80svh,860px);width:auto;max-width:92vw;aspect-ratio:9/16;object-fit:contain;background:#000;border-radius:var(--rad)}
+.vm-box img{display:block;max-height:86svh;max-width:92vw;width:auto;height:auto;border-radius:4px;background:#fff}
+.vm-box img[hidden],.vm-box video[hidden]{display:none}
+.vm-close{position:absolute;right:14px;top:12px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);cursor:pointer}
+.vm-close span{position:absolute;left:14px;right:14px;top:23px;height:2px;background:#fff;border-radius:2px;transform:rotate(45deg)}
+.vm-close span+span{transform:rotate(-45deg)}
+body.vm-open{overflow:hidden}
 
 /* ---------- контакты ---------- */
 .sec-kontakty{padding-bottom:clamp(64px,9vw,110px)}
@@ -336,7 +388,7 @@ html[lang="kk"] .kick{letter-spacing:.12em}
   .col img{--pos:50% 30%}
   #atlant .col img{--pos:50% 28%}
   #programma .col img{--pos:50% 40%}
-  #massazh .col img{--pos:50% 42%}
+  #massazh .col img{--pos:74% 45%}
   #fizio .col img{--pos:50% 38%}
   .grad{background:linear-gradient(to top,rgba(13,47,54,.94) 0,rgba(13,47,54,.8) 30%,rgba(13,47,54,.42) 54%,rgba(13,47,54,.12) 72%,rgba(13,47,54,0) 86%)}
   .plate .kick,#h1 .l2{text-shadow:0 1px 3px rgba(13,47,54,.9),0 1px 18px rgba(0,0,0,.5)}
@@ -346,7 +398,8 @@ html[lang="kk"] .kick{letter-spacing:.12em}
   .sticky{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(13,47,54,.97)}
   .plate{border-radius:22px 22px 0 0}
   .col img{transform:none}
-  .bg img{transform:none}
+  .bg img{transform:none;opacity:.72}
+  .col{opacity:calc(.55 + .45*var(--open))}
   .sec::before,.sec::after{display:none}
 }
 @media (max-width:420px){

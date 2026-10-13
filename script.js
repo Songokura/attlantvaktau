@@ -142,7 +142,8 @@
       var isHero = pw.classList.contains("pw-hero");
       var open;
       if (isHero) open = REDUCED ? 1 : backOut(INTRO);
-      else open = REDUCED ? 1 : backOut(smooth((enter - 0.42) / 0.5));
+      /* на телефоне колонна раскрывается раньше: иначе между плитами полэкрана пустой темноты */
+      else open = REDUCED ? 1 : (MOBILE ? backOut(smooth((enter - 0.12) / 0.6)) : backOut(smooth((enter - 0.42) / 0.5)));
       var near = r.bottom > -H * 0.5 && r.top < H * 1.5;
       if (s.open < 0 || REDUCED || !near || isHero) s.open = open;
       else {
@@ -216,6 +217,82 @@
     });
   });
 
+  /* ---------- Видео о методе: свой ролик на каждый язык, файл грузится только по клику ---------- */
+  var metodV = doc.getElementById("metod-video"), metodF = doc.getElementById("metod-frame");
+  var MEDIA = { ru: metodV ? { metod: metodV.getAttribute("data-src"), metodPoster: metodV.getAttribute("poster") } : {} };
+  function setMetod() {
+    if (!metodV) return;
+    var m = MEDIA[LANG] || MEDIA.ru;
+    if (metodV.getAttribute("data-src") === m.metod) return;
+    metodV.pause();
+    metodV.setAttribute("data-src", m.metod);
+    metodV.setAttribute("poster", m.metodPoster);
+    if (metodV.getAttribute("src")) { metodV.removeAttribute("src"); metodV.load(); }
+    if (metodF) metodF.classList.remove("is-on");
+  }
+  if (metodV && metodF) {
+    metodF.querySelector(".vplay").addEventListener("click", function () {
+      if (!metodV.getAttribute("src")) metodV.setAttribute("src", metodV.getAttribute("data-src"));
+      metodF.classList.add("is-on");
+      metodV.controls = true;
+      var pr = metodV.play(); if (pr && pr.catch) pr.catch(function () {});
+      metodV.focus({ preventScroll: true });
+    });
+  }
+
+  /* ---------- Отзывы: немая петля по видимости, полный ролик и лицензия в окне ---------- */
+  var loops = [].slice.call(doc.querySelectorAll(".rv-loop"));
+  if ("IntersectionObserver" in W && !REDUCED) {
+    var lio = new IntersectionObserver(function (es) {
+      es.forEach(function (x) {
+        var v = x.target;
+        if (x.isIntersecting && x.intersectionRatio >= 0.55) {
+          if (!v.getAttribute("src")) v.setAttribute("src", v.getAttribute("data-src"));
+          var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+        } else if (v.getAttribute("src")) {
+          v.pause(); v.classList.remove("is-live"); v.removeAttribute("src"); v.load();
+        }
+      });
+    }, { threshold: [0, 0.55] });
+    loops.forEach(function (v) {
+      v.addEventListener("playing", function () { v.classList.add("is-live"); });
+      lio.observe(v);
+    });
+  }
+  var vm = doc.getElementById("vmodal"), vmV = doc.getElementById("vm-video"), vmI = doc.getElementById("vm-img");
+  var vmBack = null;
+  function vmOpen(src, isImg, label) {
+    if (!vm) return;
+    vmBack = doc.activeElement;
+    vmV.hidden = isImg; vmI.hidden = !isImg;
+    if (isImg) { vmI.src = src; vmI.alt = label || ""; }
+    else { vmV.src = src; }
+    vm.hidden = false; vm.classList.add("open");
+    doc.body.classList.add("vm-open");
+    requestAnimationFrame(function () { vm.classList.add("show"); });
+    if (!isImg) { var pr = vmV.play(); if (pr && pr.catch) pr.catch(function () {}); }
+    vm.querySelector(".vm-close").focus({ preventScroll: true });
+  }
+  function vmClose() {
+    if (!vm || !vm.classList.contains("open")) return;
+    vmV.pause(); vmV.removeAttribute("src"); vmV.load();
+    vm.classList.remove("show");
+    setTimeout(function () { vm.classList.remove("open"); vm.hidden = true; }, 220);
+    doc.body.classList.remove("vm-open");
+    if (vmBack) try { vmBack.focus({ preventScroll: true }); } catch (e) {}
+  }
+  if (vm) {
+    vm.querySelector(".vm-close").addEventListener("click", vmClose);
+    vm.addEventListener("click", function (e) { if (e.target === vm) vmClose(); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") vmClose(); });
+  }
+  [].forEach.call(doc.querySelectorAll(".rv-card[data-video]"), function (b) {
+    b.addEventListener("click", function () { vmOpen(b.getAttribute("data-video"), false); });
+  });
+  [].forEach.call(doc.querySelectorAll("[data-lic]"), function (b) {
+    b.addEventListener("click", function () { var im = b.querySelector("img"); vmOpen("assets/img/license.webp", true, im ? im.alt : ""); });
+  });
+
   /* ---------- Язык: RU в разметке, KZ подгружается отдельным файлом ---------- */
   var I18N = { ru: {} };
   var RU = I18N.ru;
@@ -248,6 +325,7 @@
     try { localStorage.setItem("atlant-lang", lang); } catch (e) {}
     fitText();
     updateRails();
+    setMetod();
   }
   function loadLang(lang, done) {
     if (I18N[lang] || lang !== "kk") return done();
@@ -258,6 +336,7 @@
         I18N.kk = W.SITE_KK;
         if (W.SITE_KK_WA) WA.kk = W.SITE_KK_WA;
         if (W.SITE_KK_FORM) FORM_LABELS.kk = W.SITE_KK_FORM;
+        if (W.SITE_KK_MEDIA) MEDIA.kk = W.SITE_KK_MEDIA;
       }
       done();
     };

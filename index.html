@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&family=Onest:wght@400;500;600&display=swap">
 <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261012-2">
+<link rel="stylesheet" href="styles.css?v=20261013-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,6 +112,7 @@
     <a href="#massazh" data-i="m.massazh">Массаж</a>
     <a href="#fizio" data-i="m.fizio">Физиолечение</a>
     <a href="#pokazaniya" data-i="m.pokazaniya">С чем приходят</a>
+    <a href="#metod" data-i="m.metod">Метод на видео</a>
     <a href="#kak" data-i="m.kak">Как проходит приём</a>
     <a href="#otzyvy" data-i="m.otzyvy">Отзывы</a>
     <a href="#kontakty" data-i="m.kontakty">Контакты</a>
@@ -204,7 +205,7 @@
   <section class="plate pl-photo t-deep">
     <div class="bg" aria-hidden="true"><img src="assets/img/massazh-bg.webp" width="200" height="297" alt="" loading="lazy" decoding="async"></div>
     <div class="axis" aria-hidden="true"><span class="c1"></span></div>
-    <div class="col" aria-hidden="true"><img src="assets/img/massazh.webp" width="720" height="1070" alt="" loading="lazy" decoding="async"></div>
+    <div class="col" aria-hidden="true"><img src="assets/img/massazh.webp" width="712" height="672" alt="" loading="lazy" decoding="async"></div>
     <div class="grad" aria-hidden="true"></div>
     <div class="pl-in">
       <div class="txt">
@@ -225,7 +226,7 @@
   <section class="plate pl-photo t-deep">
     <div class="bg" aria-hidden="true"><img src="assets/img/fizio-bg.webp" width="200" height="319" alt="" loading="lazy" decoding="async"></div>
     <div class="axis" aria-hidden="true"><span class="c1"></span></div>
-    <div class="col" aria-hidden="true"><img src="assets/img/fizio.webp" width="720" height="1150" alt="" loading="lazy" decoding="async"></div>
+    <div class="col" aria-hidden="true"><img src="assets/img/fizio.webp" width="720" height="950" alt="" loading="lazy" decoding="async"></div>
     <div class="grad" aria-hidden="true"></div>
     <div class="pl-in">
       <div class="txt">
@@ -262,12 +263,34 @@
         <div class="tile"><b data-i="pk.t1">Головные боли</b><span data-i="pk.t1t">и головокружение</span></div>
         <div class="tile"><b data-i="pk.t2">Боль в шее и спине</b><span data-i="pk.t2t">остеохондроз, зажимы</span></div>
         <div class="tile"><b data-i="pk.t3">Онемение рук</b><span data-i="pk.t3t">и тяжесть в плечах</span></div>
-        <div class="tile"><b data-i="pk.t4">Нарушение осанки</b><span data-i="pk.t4t">у взрослых и детей</span></div>
+        <div class="tile"><b data-i="pk.t4">Нарушение осанки</b><span data-i="pk.t4t">сутулость, перекос плеч</span></div>
         <div class="tile"><b data-i="pk.t5">Быстрая утомляемость</b><span data-i="pk.t5t">плохой сон, усталость</span></div>
-        <div class="tile"><b data-i="pk.t6">Последствия травм</b><span data-i="pk.t6t">родовых, спортивных, ДТП</span></div>
+        <div class="tile"><b data-i="pk.t6">Последствия травм</b><span data-i="pk.t6t">спортивных, после ДТП</span></div>
       </div>
     </div>
     <p class="note rv" data-i="pk.note">Имеются противопоказания. Нужна консультация врача: показания к правке определяются на приёме.</p>
+  </div>
+</section>
+
+<!-- МЕТОД НА ВИДЕО -->
+<section class="sec sec-metod" id="metod">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kick"><span class="dash"></span><span data-i="mt.kick">Метод на видео</span></p>
+      <h2 data-i="mt.h2">Как атлант влияет на всё тело</h2>
+      <p class="lead" data-i="mt.lead">Анимация за 6 минут: где находится первый позвонок, что даёт его смещение и как проходит коррекция.</p>
+    </div>
+    <div class="metod rv">
+      <div class="vframe" id="metod-frame">
+        <video id="metod-video" playsinline preload="none" poster="assets/img/metod-ru.webp" data-src="assets/video/metod-ru.mp4" width="1280" height="720"></video>
+        <button class="vplay" type="button" aria-label="Смотреть видео о методе" data-i-aria="mt.play"><span class="play" aria-hidden="true"><svg width="26" height="26"><use href="#ic-play"/></svg></span><span class="vlen" data-i="mt.len">6 минут</span></button>
+      </div>
+      <ul class="metod-pts">
+        <li><b data-i="mt.p1">Где атлант</b><span data-i="mt.p1t">Первый позвонок держит голову, рядом проходят сосуды и нервы.</span></li>
+        <li><b data-i="mt.p2">Что даёт смещение</b><span data-i="mt.p2t">Напряжение мышц шеи, перекос плеч и таза.</span></li>
+        <li><b data-i="mt.p3">Как проходит коррекция</b><span data-i="mt.p3t">Без операций и таблеток, после осмотра врача.</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -309,6 +332,10 @@
         <li><b data-i="w.l3">Ищем причину</b><span data-i="w.l3t">Цель - устойчивый результат, а не временное облегчение.</span></li>
         <li><b data-i="w.l4">Обратная связь</b><span data-i="w.l4t">Вопросы и консультации на всём пути восстановления.</span></li>
       </ul>
+      <button class="lic rv" type="button" data-lic aria-haspopup="dialog">
+        <img src="assets/img/license-sm.webp" width="360" height="509" alt="Лицензия на медицинскую деятельность № 26006860" data-i-alt="w.lica" loading="lazy" decoding="async">
+        <span class="lic-t"><b data-i="w.lic">Лицензия Минздрава РК № 26006860</b><span data-i="w.lict">С 2020 года. Неврология, общая врачебная практика, медицинская реабилитация, массаж.</span><span class="lic-more" data-i="w.licm">Посмотреть лицензию</span></span>
+      </button>
       <figure class="why-ph why-ph2 rv">
         <img src="assets/img/device.webp" width="640" height="800" alt="Аппарат для правки атланта в руках специалиста" data-i-alt="w.ph2a" loading="lazy" decoding="async">
       </figure>
@@ -331,22 +358,74 @@
     </div>
   </div>
   <div class="rail-wrap">
-    <div class="rail" id="rail-rv" tabindex="0" aria-label="Видеоотзывы в Instagram" data-i-aria="rail.aria">
-      <a class="rv-card" href="https://www.instagram.com/reel/Ddc3eFhi5Sc/" target="_blank" rel="noopener">
-        <img src="assets/img/rv-elena.webp" width="560" height="700" alt="Видеоотзыв Елены о восстановлении в центре Atlant" data-i-alt="o.1a" loading="lazy" decoding="async">
+    <div class="rail" id="rail-rv" tabindex="0" aria-label="Видеоотзывы пациентов" data-i-aria="rail.aria">
+      <button class="rv-card" type="button" data-video="assets/video/rv/DLCST05SNTC.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/DLCST05SNTC.webp" width="480" height="854" alt="Видеоотзыв: Шамсият" data-i-alt="o.0a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/DLCST05SNTC-loop.mp4" aria-hidden="true"></video>
         <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
-        <span class="rv-cap"><b data-i="o.1">Елена</b><span data-i="o.1t">боль в шее и спине, головные боли</span></span>
-      </a>
-      <a class="rv-card" href="https://www.instagram.com/reel/DLCST05SNTC/" target="_blank" rel="noopener">
-        <img src="assets/img/rv-patient.webp" width="560" height="700" alt="Видеоотзыв пациентки после восстановительной программы" data-i-alt="o.2a" loading="lazy" decoding="async">
+        <span class="rv-badge" data-i="o.fb">Основатель</span>
+        <span class="rv-cap"><b data-i="o.0">Шамсият</b><span data-i="o.0t">основатель клиники, сама прошла программу</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/DBRM_8GMX7q.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/DBRM_8GMX7q.webp" width="480" height="854" alt="Видеоотзыв: Нина" data-i-alt="o.1a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/DBRM_8GMX7q-loop.mp4" aria-hidden="true"></video>
         <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
-        <span class="rv-cap"><b data-i="o.2">Пациентка центра</b><span data-i="o.2t">годы с остеохондрозом и головокружением</span></span>
-      </a>
-      <a class="rv-card" href="https://www.instagram.com/reel/Ddbdy3_NOqV/" target="_blank" rel="noopener">
-        <img src="assets/img/rv-proc.webp" width="560" height="700" alt="Видео: как проходит процедура правки атланта" data-i-alt="o.3a" loading="lazy" decoding="async">
+        <span class="rv-cap"><b data-i="o.1">Нина</b><span data-i="o.1t">сильные головокружения</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/Cgtr7wBjnlO.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/Cgtr7wBjnlO.webp" width="480" height="854" alt="Видеоотзыв: Майра" data-i-alt="o.2a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/Cgtr7wBjnlO-loop.mp4" aria-hidden="true"></video>
         <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
-        <span class="rv-cap"><b data-i="o.3">Как проходит правка</b><span data-i="o.3t">видео процедуры из центра</span></span>
-      </a>
+        <span class="rv-cap"><b data-i="o.2">Майра</b><span data-i="o.2t">протрузии, боль в левой руке</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/C-c51YZMkho.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/C-c51YZMkho.webp" width="480" height="854" alt="Видеоотзыв: Пациентка центра" data-i-alt="o.3a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/C-c51YZMkho-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.3">Пациентка центра</b><span data-i="o.3t">полгода программы: снова ходит без поддержки</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/DCoca3cM_rA.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/DCoca3cM_rA.webp" width="480" height="854" alt="Видеоотзыв: Пациентка центра" data-i-alt="o.4a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/DCoca3cM_rA-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.4">Пациентка центра</b><span data-i="o.4t">боли в шее, отзыв на казахском</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/CeVZw3DA60d.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/CeVZw3DA60d.webp" width="480" height="854" alt="Видеоотзыв: Пациентка центра" data-i-alt="o.5a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/CeVZw3DA60d-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.5">Пациентка центра</b><span data-i="o.5t">шейный отдел, отзыв на казахском</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/DHadclnsKrD.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/DHadclnsKrD.webp" width="480" height="854" alt="Видеоотзыв: Пациентка центра" data-i-alt="o.6a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/DHadclnsKrD-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.6">Пациентка центра</b><span data-i="o.6t">боль в руке, отзыв на казахском</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/C2kY9PzMsn2.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/C2kY9PzMsn2.webp" width="480" height="854" alt="Видеоотзыв: Пациент центра" data-i-alt="o.7a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/C2kY9PzMsn2-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.7">Пациент центра</b><span data-i="o.7t">отзыв на казахском</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/C2kYkADMUzQ.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/C2kYkADMUzQ.webp" width="480" height="854" alt="Видеоотзыв: Пациентка центра" data-i-alt="o.8a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/C2kYkADMUzQ-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.8">Пациентка центра</b><span data-i="o.8t">отзыв на казахском</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/CebhgsmMtZH.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/CebhgsmMtZH.webp" width="480" height="854" alt="Видеоотзыв: Пациент центра" data-i-alt="o.9a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/CebhgsmMtZH-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.9">Пациент центра</b><span data-i="o.9t">отзыв на казахском</span></span>
+      </button>
+      <button class="rv-card" type="button" data-video="assets/video/rv/Cn9IEFqtR02.mp4" aria-haspopup="dialog">
+        <img src="assets/img/rv/Cn9IEFqtR02.webp" width="480" height="854" alt="Видеоотзыв: Пациент центра" data-i-alt="o.10a" loading="lazy" decoding="async">
+        <video class="rv-loop" muted loop playsinline preload="none" data-src="assets/video/rv/Cn9IEFqtR02-loop.mp4" aria-hidden="true"></video>
+        <span class="play" aria-hidden="true"><svg width="22" height="22"><use href="#ic-play"/></svg></span>
+        <span class="rv-cap"><b data-i="o.10">Пациент центра</b><span data-i="o.10t">отзыв на казахском</span></span>
+      </button>
     </div>
   </div>
   <div class="wrap">
@@ -375,7 +454,7 @@
         <ul class="kont-list">
           <li><svg width="20" height="20"><use href="#ic-pin"/></svg><span><b data-i="c.addr">Актау, 17 микрорайон, дом 73, ЖК Айракты</b><a href="https://2gis.kz/aktau/geo/70000001086751029" target="_blank" rel="noopener" data-i="c.2gis">Открыть в 2ГИС</a></span></li>
           <li><svg width="20" height="20"><use href="#ic-pin"/></svg><span data-i="c.atyrau">Принимаем также в Атырау - уточните даты в WhatsApp</span></li>
-          <li><svg width="20" height="20"><use href="#ic-clock"/></svg><span data-i="c.time">Ежедневно 10:00-19:00</span></li>
+          <li><svg width="20" height="20"><use href="#ic-clock"/></svg><span data-i="c.time">Приём 10:00-19:00, по записи</span></li>
           <li><svg width="20" height="20"><use href="#ic-mail"/></svg><a href="mailto:atlantvaktau1@gmail.com">atlantvaktau1@gmail.com</a></li>
         </ul>
       </div>
@@ -405,9 +484,17 @@
     <a class="foot-brand" href="#top"><img src="assets/logo-mark.webp" width="150" height="150" alt="" loading="lazy" decoding="async"><span>Atlant</span></a>
     <p class="foot-txt" data-i="ft.txt">Медицинский центр: правка атланта, восстановление позвоночника, массаж, физиолечение. Актау и Атырау.</p>
     <a class="foot-ig" href="https://www.instagram.com/attlantvaktau/" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#ic-ig"/></svg><span>@attlantvaktau</span></a>
-    <p class="foot-copy"><span>&copy; <span id="year">2026</span> Atlant. ИИН 201240029089.</span> <span data-i="ft.copy">Имеются противопоказания. Необходима консультация врача.</span></p>
+    <p class="foot-copy"><span>&copy; <span id="year">2026</span> <span data-i="ft.org">ТОО «Attlantvaktau», БИН 201240029089. Лицензия на медицинскую деятельность № 26006860, Минздрав РК.</span></span> <span data-i="ft.copy">Имеются противопоказания. Необходима консультация врача.</span></p>
   </div>
 </footer>
+
+<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-label="Просмотр" data-i-aria="vm.aria" hidden>
+  <div class="vm-box">
+    <video id="vm-video" controls playsinline preload="none"></video>
+    <img id="vm-img" alt="" hidden>
+  </div>
+  <button class="vm-close" type="button" aria-label="Закрыть" data-i-aria="vm.close"><span></span><span></span></button>
+</div>
 
 <div class="sticky" id="sticky" aria-label="Быстрая связь" data-i-aria="st.aria">
   <a class="st-tel" href="tel:+77716670640"><svg width="18" height="18"><use href="#ic-tel"/></svg><span data-i="st.call">Позвонить</span></a>
@@ -415,6 +502,6 @@
   <a class="st-ig" href="https://www.instagram.com/attlantvaktau/" target="_blank" rel="noopener" aria-label="Instagram Atlant" data-i-aria="ig.aria"><svg width="20" height="20"><use href="#ic-ig"/></svg></a>
 </div>
 
-<script src="script.js?v=20261012-2" defer></script>
+<script src="script.js?v=20261013-1" defer></script>
 </body>
 </html>
