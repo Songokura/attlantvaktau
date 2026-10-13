@@ -442,3 +442,18 @@ html[lang="kk"] .kick{letter-spacing:.12em}
   .plate.flip .bg::after{background:linear-gradient(250deg,var(--deep) 0,rgba(13,47,54,.72) 45%,rgba(13,47,54,.35) 100%)}
 }
 @media (min-width:761px) and (max-width:1120px){.plate.flip{--cx:28%}}
+
+/* минимализм 13.10.2026 */
+.pw-anchor{position:absolute;left:0;top:0;width:1px;height:1px;pointer-events:none}
+.sec::before,.sec::after{display:none}
+.pl-hero .pl-in{padding-bottom:clamp(56px,9svh,90px)}
+@media (max-width:760px){.pl-hero .pl-in{padding-bottom:calc(40px + 7svh)}}
+.bt-tiles{grid-column:1/-1;grid-template-columns:repeat(3,1fr)}
+.bento .tile{min-height:0;padding:22px 24px}
+.bento .tile b{font-size:clamp(17px,1.4vw,20px)}
+@media (max-width:520px){.bt-tiles{grid-template-columns:1fr 1fr}}
+.metod{grid-template-columns:1fr;max-width:960px}
+.metod .vframe{order:0}
+.why-nums{margin-bottom:0}
+.why-nums{grid-template-columns:1fr 1fr}
+@media (max-width:600px){.why-nums{grid-template-columns:1fr 1fr;gap:10px}.stat{padding:16px}.stat b{font-size:36px}.stat span{font-size:14px}}

@@ -81,7 +81,7 @@
   var HDR = function () { return parseFloat(getComputedStyle(root).getPropertyValue("--hdr")) || 70; };
   function targetTop(el) {
     var r = el.getBoundingClientRect().top + W.pageYOffset;
-    if (el.classList.contains("pw") || el.classList.contains("anchor")) return r;
+    if (el.classList.contains("pw") || el.classList.contains("anchor") || el.classList.contains("pw-anchor")) return r;
     if (el.classList.contains("sec")) return r - HDR();
     return r - HDR() - 14;
   }
