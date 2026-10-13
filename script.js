@@ -81,7 +81,7 @@
   var HDR = function () { return parseFloat(getComputedStyle(root).getPropertyValue("--hdr")) || 70; };
   function targetTop(el) {
     var r = el.getBoundingClientRect().top + W.pageYOffset;
-    if (el.classList.contains("pw") || el.classList.contains("anchor") || el.classList.contains("pw-anchor")) return r;
+    if (el.classList.contains("pw") || el.classList.contains("anchor")) return r;
     if (el.classList.contains("sec")) return r - HDR();
     return r - HDR() - 14;
   }
@@ -217,28 +217,19 @@
     });
   });
 
-  /* ---------- Видео о методе: свой ролик на каждый язык, файл грузится только по клику ---------- */
-  var metodV = doc.getElementById("metod-video"), metodF = doc.getElementById("metod-frame");
-  var MEDIA = { ru: metodV ? { metod: metodV.getAttribute("data-src"), metodPoster: metodV.getAttribute("poster") } : {} };
-  function setMetod() {
-    if (!metodV) return;
-    var m = MEDIA[LANG] || MEDIA.ru;
-    if (metodV.getAttribute("data-src") === m.metod) return;
-    metodV.pause();
-    metodV.setAttribute("data-src", m.metod);
-    metodV.setAttribute("poster", m.metodPoster);
-    if (metodV.getAttribute("src")) { metodV.removeAttribute("src"); metodV.load(); }
-    if (metodF) metodF.classList.remove("is-on");
-  }
-  if (metodV && metodF) {
-    metodF.querySelector(".vplay").addEventListener("click", function () {
-      if (!metodV.getAttribute("src")) metodV.setAttribute("src", metodV.getAttribute("data-src"));
-      metodF.classList.add("is-on");
-      metodV.controls = true;
-      var pr = metodV.play(); if (pr && pr.catch) pr.catch(function () {});
-      metodV.focus({ preventScroll: true });
+  /* ---------- Видео о методе: файл грузится только по клику ---------- */
+  [].forEach.call(doc.querySelectorAll(".vframe"), function (f) {
+    var v = f.querySelector("video"), b = f.querySelector(".vplay");
+    if (!v || !b) return;
+    b.addEventListener("click", function () {
+      [].forEach.call(doc.querySelectorAll(".vframe video"), function (o) { if (o !== v) o.pause(); });
+      if (!v.getAttribute("src")) v.setAttribute("src", v.getAttribute("data-src"));
+      f.classList.add("is-on");
+      v.controls = true;
+      var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+      v.focus({ preventScroll: true });
     });
-  }
+  });
 
   /* ---------- Отзывы: немая петля только при наведении мышью, полный ролик и лицензия в окне ---------- */
   var HOVER = W.matchMedia("(hover:hover) and (pointer:fine)").matches;
@@ -335,7 +326,6 @@
     try { localStorage.setItem("atlant-lang", lang); } catch (e) {}
     fitText();
     updateRails();
-    setMetod();
   }
   function loadLang(lang, done) {
     if (I18N[lang] || lang !== "kk") return done();
@@ -346,7 +336,6 @@
         I18N.kk = W.SITE_KK;
         if (W.SITE_KK_WA) WA.kk = W.SITE_KK_WA;
         if (W.SITE_KK_FORM) FORM_LABELS.kk = W.SITE_KK_FORM;
-        if (W.SITE_KK_MEDIA) MEDIA.kk = W.SITE_KK_MEDIA;
       }
       done();
     };

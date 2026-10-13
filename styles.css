@@ -420,8 +420,6 @@ html[lang="kk"] .kick{letter-spacing:.12em}
   .rv-card img,.btn,.lnk,.iglink,.arr{transition:none}
   .col{--open:1}
 }
-/* «лево-право»: «С чем приходят» - фото слева, «Метод» - видео справа, «Почему» - фото слева */
-@media (min-width:981px){.why-list{order:2}.why-ph2{order:1}}
 
 /* листалка страниц лицензии */
 .vm-arr{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(13,47,54,.8);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .2s,transform .16s ease-out}
@@ -443,17 +441,29 @@ html[lang="kk"] .kick{letter-spacing:.12em}
 }
 @media (min-width:761px) and (max-width:1120px){.plate.flip{--cx:28%}}
 
-/* минимализм 13.10.2026 */
-.pw-anchor{position:absolute;left:0;top:0;width:1px;height:1px;pointer-events:none}
+/* компоновка 13.10.2026: спокойнее, без потери содержания */
 .sec::before,.sec::after{display:none}
 .pl-hero .pl-in{padding-bottom:clamp(56px,9svh,90px)}
 @media (max-width:760px){.pl-hero .pl-in{padding-bottom:calc(40px + 7svh)}}
-.bt-tiles{grid-column:1/-1;grid-template-columns:repeat(3,1fr)}
-.bento .tile{min-height:0;padding:22px 24px}
-.bento .tile b{font-size:clamp(17px,1.4vw,20px)}
-@media (max-width:520px){.bt-tiles{grid-template-columns:1fr 1fr}}
-.metod{grid-template-columns:1fr;max-width:960px}
+/* с чем приходят: фото слева, жалобы справа */
+.bt-model{grid-column:span 5}
+.bt-model img{flex:1 1 auto;min-height:0;height:100%;aspect-ratio:auto}
+.bt-tiles{grid-column:span 7;grid-template-columns:1fr 1fr}
+.bento .tile{min-height:0;justify-content:center}
+@media (max-width:980px){.bt-model{grid-column:1/-1}.bt-model img{aspect-ratio:16/10;height:auto}.bt-tiles{grid-column:1/-1}}
+/* метод: два ролика рядом, пункты строкой под ними */
+.metod{grid-template-columns:1fr 1fr;align-items:start}
+.vcard{display:flex;flex-direction:column;gap:12px}
+.vcard figcaption{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.vcard figcaption b{font:600 18px/1.2 var(--fd)}
+.vcard figcaption span{font-size:14.5px;color:var(--mute)}
+.metod-pts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:10px}
+@media (max-width:900px){.metod{grid-template-columns:1fr}.metod-pts{grid-template-columns:1fr}}
+/* почему: цифры, затем список слева и фото справа, лицензия строкой */
+.why-list{grid-column:span 7;order:1}
+.why-ph{grid-column:span 5;order:2}
+.why-ph img{aspect-ratio:auto;height:100%;min-height:340px}
+@media (max-width:980px){.why-list{grid-column:1/-1;order:3}.why-ph{grid-column:1/-1;order:2}.why-ph img{aspect-ratio:16/10;min-height:0;height:auto}}
 .metod .vframe{order:0}
-.why-nums{margin-bottom:0}
-.why-nums{grid-template-columns:1fr 1fr}
-@media (max-width:600px){.why-nums{grid-template-columns:1fr 1fr;gap:10px}.stat{padding:16px}.stat b{font-size:36px}.stat span{font-size:14px}}
+@media (min-width:981px){.why-ph img{aspect-ratio:5/4;height:auto;min-height:0}.why{align-items:center}}
+@media (min-width:981px){.why-ph img{object-position:50% 12%}}
