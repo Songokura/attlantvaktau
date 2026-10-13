@@ -529,10 +529,32 @@ html[lang="kk"] .kick{letter-spacing:.12em}
 @media (max-width:900px){.kak{grid-template-columns:1fr}.kak-video img{aspect-ratio:16/11}}
 
 /* «лево-право» 13.10.2026: герой R, физио L, «С чем приходят» R, «Как проходит» L, «Почему» R, врач L */
-@media (min-width:981px){.vrach .docs{order:-1}}
 /* с чем приходят: жалобы слева, два фото справа */
 .bt-tiles{grid-column:span 6}
 .bt-model,.bt-mrt{grid-column:span 3}
 .bt-mrt img{flex:1 1 auto;min-height:0;height:100%;aspect-ratio:auto}
 @media (max-width:980px){.bt-model,.bt-mrt{grid-column:span 6}.bt-model img,.bt-mrt img{aspect-ratio:4/5;height:auto}.bt-tiles{grid-column:1/-1}}
 @media (max-width:600px){.kak .steps{grid-template-columns:1fr;gap:22px}}
+
+/* о методе Atlasprofilax: фото слева, текст справа */
+.sec-ap{background:var(--white)}
+.ap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:start}
+.ap-ph{border-radius:var(--rad);overflow:hidden;position:sticky;top:calc(var(--hdr) + 24px)}
+.ap-ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 40%}
+.ap-t h2{font-size:clamp(30px,3.8vw,52px);margin-top:14px;text-wrap:balance}
+.ap-t .lead{margin-top:14px}
+.ap-f{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.ap-f li{padding:16px 16px 18px;border-radius:var(--rad);background:var(--paper);border-top:3px solid var(--teal);display:flex;flex-direction:column;gap:6px}
+.ap-f b{font:600 16.5px/1.2 var(--fd)}
+.ap-f span{font-size:14.5px;line-height:1.45;color:var(--ink2)}
+.ap-p{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.ap-p b{font:600 17px/1.25 var(--fd)}
+.ap-p p{margin-top:6px;font-size:15px;line-height:1.55;color:var(--ink2)}
+.ap-q{margin-top:22px;font:300 italic clamp(18px,1.6vw,22px)/1.35 var(--fd);color:var(--tealink)}
+.ap-t .btn{margin-top:20px}
+.ap-t .btn-wa{background:var(--deep);color:#fff}
+@media (max-width:980px){.ap{grid-template-columns:1fr}.ap-ph{position:static}.ap-ph img{aspect-ratio:16/11}.ap-f{grid-template-columns:1fr}.ap-p{grid-template-columns:1fr}.ap-t .btn{width:100%}}
+
+/* «лево-право» с блоком метода: жалобы R, метод L, «Как проходит» R, «Почему» L, врач R */
+@media (min-width:901px){.kak{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}.kak .kak-video{order:2}}
+@media (min-width:981px){.why-ph{order:1}.why-list{order:2}}
