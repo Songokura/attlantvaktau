@@ -240,23 +240,17 @@
     });
   }
 
-  /* ---------- Отзывы: немая петля по видимости, полный ролик и лицензия в окне ---------- */
-  var loops = [].slice.call(doc.querySelectorAll(".rv-loop"));
-  if ("IntersectionObserver" in W && !REDUCED) {
-    var lio = new IntersectionObserver(function (es) {
-      es.forEach(function (x) {
-        var v = x.target;
-        if (x.isIntersecting && x.intersectionRatio >= 0.55) {
-          if (!v.getAttribute("src")) v.setAttribute("src", v.getAttribute("data-src"));
-          var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
-        } else if (v.getAttribute("src")) {
-          v.pause(); v.classList.remove("is-live"); v.removeAttribute("src"); v.load();
-        }
-      });
-    }, { threshold: [0, 0.55] });
-    loops.forEach(function (v) {
+  /* ---------- Отзывы: немая петля только при наведении мышью, полный ролик и лицензия в окне ---------- */
+  var HOVER = W.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  if (HOVER && !REDUCED) {
+    [].forEach.call(doc.querySelectorAll(".rv-card"), function (card) {
+      var v = card.querySelector(".rv-loop"); if (!v) return;
       v.addEventListener("playing", function () { v.classList.add("is-live"); });
-      lio.observe(v);
+      card.addEventListener("pointerenter", function () {
+        if (!v.getAttribute("src")) v.setAttribute("src", v.getAttribute("data-src"));
+        var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+      });
+      card.addEventListener("pointerleave", function () { v.pause(); v.classList.remove("is-live"); });
     });
   }
   var vm = doc.getElementById("vmodal"), vmV = doc.getElementById("vm-video"), vmI = doc.getElementById("vm-img");
