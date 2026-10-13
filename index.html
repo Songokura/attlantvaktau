@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&family=Onest:wght@400;500;600&display=swap">
 <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261013-5">
+<link rel="stylesheet" href="styles.css?v=20261013-6">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -77,7 +77,7 @@
   <symbol id="ic-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></symbol>
 </svg>
 
-<a class="skip" href="#atlant" data-i="skip">К услугам</a>
+<a class="skip" href="#uslugi" data-i="skip">К услугам</a>
 
 <header class="hdr" id="hdr">
   <div class="hdr-in">
@@ -86,10 +86,10 @@
       <span class="brand-word">Atlant</span>
     </a>
     <nav class="nav" aria-label="Разделы сайта" data-i-aria="nav.aria">
-      <a href="#atlant" data-i="nav.atlant">Правка атланта</a>
-      <a href="#programma" data-i="nav.programma">Программа</a>
-      <a href="#massazh" data-i="nav.massazh">Массаж</a>
+      <a href="#uslugi" data-i="nav.uslugi">Услуги</a>
       <a href="#fizio" data-i="nav.fizio">Физиолечение</a>
+      <a href="#metod" data-i="nav.metod">Метод</a>
+      <a href="#vrach" data-i="nav.vrach">Врач</a>
       <a href="#otzyvy" data-i="nav.otzyvy">Отзывы</a>
       <a href="#kontakty" data-i="nav.kontakty">Контакты</a>
     </nav>
@@ -114,6 +114,7 @@
     <a href="#pokazaniya" data-i="m.pokazaniya">С чем приходят</a>
     <a href="#metod" data-i="m.metod">Метод на видео</a>
     <a href="#kak" data-i="m.kak">Как проходит приём</a>
+    <a href="#vrach" data-i="m.vrach">Врач и документы</a>
     <a href="#otzyvy" data-i="m.otzyvy">Отзывы</a>
     <a href="#kontakty" data-i="m.kontakty">Контакты</a>
     <div class="menu-foot">
@@ -140,7 +141,7 @@
         <p class="lead" data-i="hero.lead">Метод Atlasprofilax. Приём врача - 7 000 тг вместо 14 000, программа восстановления - от 140 000 тг.</p>
         <div class="cta">
           <a class="btn btn-wa" data-wa="hero" href="https://wa.me/77716670640"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="cta.wa">Записаться в WhatsApp</span></a>
-          <a class="btn btn-ghost" href="#atlant"><span data-i="cta.uslugi">Услуги и цены</span></a>
+          <a class="btn btn-ghost" href="#uslugi"><span data-i="cta.uslugi">Услуги и цены</span></a>
         </div>
         <a class="iglink" href="https://www.instagram.com/attlantvaktau/" target="_blank" rel="noopener"><svg width="16" height="16"><use href="#ic-ig"/></svg><span data-i="hero.ig">Отзывы пациентов в Instagram</span><svg class="arr-i" width="16" height="16"><use href="#ic-arr"/></svg></a>
       </div>
@@ -148,72 +149,51 @@
   </section>
 </div>
 
-<!-- ПРАВКА АТЛАНТА -->
-<div class="pw" id="atlant">
-  <section class="plate pl-photo t-deep flip">
-    <div class="bg" aria-hidden="true"><img src="assets/img/atlant-bg.webp" width="200" height="267" alt="" loading="lazy" decoding="async"></div>
-    <div class="axis" aria-hidden="true"><span class="c1"></span></div>
-    <div class="col" aria-hidden="true"><img src="assets/img/atlant.webp" width="720" height="960" alt="" loading="lazy" decoding="async"></div>
-    <div class="grad" aria-hidden="true"></div>
-    <div class="pl-in">
-      <div class="txt">
-        <p class="kick"><span class="dash"></span><span data-i="a.kick">Правка атланта</span></p>
-        <h2 data-i="a.h2">Первый шейный позвонок C1</h2>
-        <p class="price"><s>14 000 тг</s> <b>7 000 тг</b> <span data-i="a.pricet">приём врача</span></p>
-        <p class="lead" data-i="a.lead">Осмотр, оценка положения атланта и показаний. Правка по методу Atlasprofilax - без операций и таблеток.</p>
-        <div class="cta">
+<!-- УСЛУГИ: три карточки вместо трёх плит -->
+<section class="sec sec-uslugi" id="uslugi">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kick"><span class="dash"></span><span data-i="us.kick">Услуги</span></p>
+      <h2 data-i="us.h2">Услуги и цены</h2>
+    </div>
+    <div class="svc">
+      <article class="svc-card rv" id="atlant">
+        <figure class="svc-ph"><img src="assets/img/atlant.webp" width="720" height="960" alt="Врач держит модель первого шейного позвонка" data-i-alt="us.a1" loading="lazy" decoding="async"></figure>
+        <div class="svc-b">
+          <p class="kick"><span data-i="a.kick">Правка атланта</span></p>
+          <h3 data-i="a.h2">Первый шейный позвонок C1</h3>
+          <p class="price"><s>14 000 тг</s> <b>7 000 тг</b> <span data-i="a.pricet">приём врача</span></p>
+          <p class="svc-t" data-i="a.lead">Осмотр и правка по методу Atlasprofilax. Без операций и таблеток.</p>
           <a class="btn btn-wa" data-wa="atlant" href="https://wa.me/77716670640"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="cta.zapis">Записаться на приём</span></a>
         </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ПРОГРАММА ВОССТАНОВЛЕНИЯ -->
-<div class="pw" id="programma">
-  <section class="plate pl-photo t-deep">
-    <div class="bg" aria-hidden="true"><img src="assets/img/programma-bg.webp" width="200" height="303" alt="" loading="lazy" decoding="async"></div>
-    <div class="axis" aria-hidden="true"><span class="c1"></span></div>
-    <div class="col" aria-hidden="true"><img src="assets/img/programma.webp" width="720" height="1090" alt="" loading="lazy" decoding="async"></div>
-    <div class="grad" aria-hidden="true"></div>
-    <div class="pl-in">
-      <div class="txt">
-        <p class="kick"><span class="dash"></span><span data-i="p.kick">Программа восстановления</span></p>
-        <h2 data-i="p.h2">Восстановление позвоночника</h2>
-        <p class="price"><b data-i="p.price">от 140 000 тг</b> <span data-i="p.pricet">договор на 6-12 месяцев</span></p>
-        <p class="lead" data-i="p.lead">Правка, массаж, физиолечение и контроль врача по одному плану. Остаёмся рядом весь путь восстановления.</p>
-        <div class="cta">
+      </article>
+      <article class="svc-card rv" id="programma">
+        <figure class="svc-ph"><img src="assets/img/programma.webp" width="720" height="1090" alt="Консультация врача по программе восстановления" data-i-alt="us.a2" loading="lazy" decoding="async"></figure>
+        <div class="svc-b">
+          <p class="kick"><span data-i="p.kick">Программа восстановления</span></p>
+          <h3 data-i="p.h2">Восстановление позвоночника</h3>
+          <p class="price"><b data-i="p.price">от 140 000 тг</b> <span data-i="p.pricet">договор на 6-12 месяцев</span></p>
+          <p class="svc-t" data-i="p.lead">Правка, массаж и физиолечение по одному плану врача.</p>
           <a class="btn btn-wa" data-wa="programma" href="https://wa.me/77716670640"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="cta.programma">Узнать о программе</span></a>
         </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- МАССАЖ -->
-<div class="pw" id="massazh">
-  <section class="plate pl-photo t-deep flip">
-    <div class="bg" aria-hidden="true"><img src="assets/img/massazh-bg.webp" width="200" height="297" alt="" loading="lazy" decoding="async"></div>
-    <div class="axis" aria-hidden="true"><span class="c1"></span></div>
-    <div class="col" aria-hidden="true"><img src="assets/img/massazh.webp" width="712" height="672" alt="" loading="lazy" decoding="async"></div>
-    <div class="grad" aria-hidden="true"></div>
-    <div class="pl-in">
-      <div class="txt">
-        <p class="kick"><span class="dash"></span><span data-i="ms.kick">Массаж</span></p>
-        <h2 data-i="ms.h2">Лечебный массаж спины и шеи</h2>
-        <p class="price"><b data-i="ms.price">курсом по назначению врача</b></p>
-        <p class="lead" data-i="ms.lead">Снимает напряжение мышц после правки и помогает закрепить результат. Отдельно или в составе программы.</p>
-        <div class="cta">
+      </article>
+      <article class="svc-card rv" id="massazh">
+        <figure class="svc-ph"><img src="assets/img/massazh.webp" width="712" height="672" alt="Лечебный массаж спины" data-i-alt="us.a3" loading="lazy" decoding="async"></figure>
+        <div class="svc-b">
+          <p class="kick"><span data-i="ms.kick">Массаж</span></p>
+          <h3 data-i="ms.h2">Лечебный массаж спины и шеи</h3>
+          <p class="price"><b data-i="ms.price">курсом по назначению врача</b></p>
+          <p class="svc-t" data-i="ms.lead">Снимает напряжение мышц и закрепляет результат правки.</p>
           <a class="btn btn-wa" data-wa="massazh" href="https://wa.me/77716670640"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="cta.price">Узнать цену</span></a>
         </div>
-      </div>
+      </article>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 <!-- ФИЗИОЛЕЧЕНИЕ -->
 <div class="pw" id="fizio">
-  <section class="plate pl-photo t-deep">
+  <section class="plate pl-photo t-deep flip">
     <div class="bg" aria-hidden="true"><img src="assets/img/fizio-bg.webp" width="200" height="319" alt="" loading="lazy" decoding="async"></div>
     <div class="axis" aria-hidden="true"><span class="c1"></span></div>
     <div class="col" aria-hidden="true"><img src="assets/img/fizio.webp" width="720" height="950" alt="" loading="lazy" decoding="async"></div>
@@ -328,10 +308,35 @@
         <li><b data-i="w.l3">Ищем причину</b><span data-i="w.l3t">Цель - устойчивый результат, а не временное облегчение.</span></li>
         <li><b data-i="w.l4">Обратная связь</b><span data-i="w.l4t">Вопросы и консультации на всём пути восстановления.</span></li>
       </ul>
-      <button class="lic rv" type="button" data-lic aria-haspopup="dialog">
+      <button class="lic rv" type="button" data-gal="lic" data-start="0" aria-haspopup="dialog">
         <img src="assets/img/license-sm.webp" width="360" height="509" alt="Лицензия на медицинскую деятельность № 26006860" data-i-alt="w.lica" loading="lazy" decoding="async">
         <span class="lic-t"><b data-i="w.lic">Лицензия Минздрава РК № 26006860</b><span data-i="w.lict">Неврология, реабилитация, массаж. С 2020 года.</span><span class="lic-more" data-i="w.licm">Лицензия и приложения - 10 страниц</span></span>
       </button>
+    </div>
+  </div>
+</section>
+
+<!-- ВРАЧ И ДОКУМЕНТЫ -->
+<section class="sec sec-vrach" id="vrach">
+  <div class="wrap">
+    <div class="vrach">
+      <div class="vrach-t rv">
+        <p class="kick"><span class="dash"></span><span data-i="vr.kick">Врач</span></p>
+        <h2>Оноева Наталья Александровна</h2>
+        <p class="lead" data-i="vr.lead">Врач атлас-терапевт, диплом врача с 2001 года.</p>
+        <ul class="vrach-l">
+          <li><b data-i="vr.l1">Иркутский медицинский университет</b><span data-i="vr.l1t">диплом врача, 2001</span></li>
+          <li><b data-i="vr.l2">Атласпециалист</b><span data-i="vr.l2t">швейцарская аппаратная методика, 100 часов</span></li>
+          <li><b data-i="vr.l3">Повышение квалификации</b><span data-i="vr.l3t">РУДН и профессиональная переподготовка</span></li>
+        </ul>
+        <button class="btn btn-ghost" type="button" data-gal="doc" data-start="0" aria-haspopup="dialog"><span data-i="vr.btn">Все документы врача</span></button>
+      </div>
+      <div class="docs rv">
+        <button class="doc doc-1" type="button" data-gal="doc" data-start="4" aria-label="Диплом врача" data-i-aria="vr.d1"><img src="assets/img/doc-5-sm.webp" width="420" height="302" alt="" loading="lazy" decoding="async"></button>
+        <button class="doc doc-2" type="button" data-gal="doc" data-start="1" aria-label="Удостоверение о повышении квалификации" data-i-aria="vr.d2"><img src="assets/img/doc-2-sm.webp" width="420" height="297" alt="" loading="lazy" decoding="async"></button>
+        <button class="doc doc-3" type="button" data-gal="doc" data-start="0" aria-label="Сертификат атласпециалиста" data-i-aria="vr.d3"><img src="assets/img/doc-1-sm.webp" width="420" height="297" alt="" loading="lazy" decoding="async"></button>
+        <span class="docs-n" data-i="vr.n">5 документов</span>
+      </div>
     </div>
   </div>
 </section>
@@ -497,6 +502,6 @@
   <a class="st-ig" href="https://www.instagram.com/attlantvaktau/" target="_blank" rel="noopener" aria-label="Instagram Atlant" data-i-aria="ig.aria"><svg width="20" height="20"><use href="#ic-ig"/></svg></a>
 </div>
 
-<script src="script.js?v=20261013-5" defer></script>
+<script src="script.js?v=20261013-6" defer></script>
 </body>
 </html>

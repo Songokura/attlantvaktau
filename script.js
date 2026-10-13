@@ -246,22 +246,24 @@
   }
   var vm = doc.getElementById("vmodal"), vmV = doc.getElementById("vm-video"), vmI = doc.getElementById("vm-img");
   var vmBack = null;
-  var LIC_PAGES = 10, vmPage = 0, vmGallery = false;
+  /* галереи документов: лицензия (10 страниц) и документы врача (5) */
+  var GAL = { lic: { n: 10, path: "assets/img/license-" }, doc: { n: 5, path: "assets/img/doc-" } };
+  var gal = GAL.lic, vmPage = 0, vmGallery = false;
   var vmPrev = vm ? vm.querySelector(".vm-prev") : null, vmNext = vm ? vm.querySelector(".vm-next") : null, vmCount = vm ? vm.querySelector(".vm-count") : null;
   function vmShowPage(i) {
-    vmPage = clamp(i, 0, LIC_PAGES - 1);
-    vmI.src = "assets/img/license-" + (vmPage + 1) + ".webp";
-    vmCount.textContent = (vmPage + 1) + " / " + LIC_PAGES;
-    vmPrev.disabled = vmPage === 0; vmNext.disabled = vmPage === LIC_PAGES - 1;
-    var nx = new Image(); if (vmPage + 1 < LIC_PAGES) nx.src = "assets/img/license-" + (vmPage + 2) + ".webp";
+    vmPage = clamp(i, 0, gal.n - 1);
+    vmI.src = gal.path + (vmPage + 1) + ".webp";
+    vmCount.textContent = (vmPage + 1) + " / " + gal.n;
+    vmPrev.disabled = vmPage === 0; vmNext.disabled = vmPage === gal.n - 1;
+    var nx = new Image(); if (vmPage + 1 < gal.n) nx.src = gal.path + (vmPage + 2) + ".webp";
   }
-  function vmOpen(src, isImg, label) {
+  function vmOpen(src, isImg, label, start) {
     if (!vm) return;
     vmBack = doc.activeElement;
     vmV.hidden = isImg; vmI.hidden = !isImg;
     vmGallery = isImg;
     vmPrev.hidden = vmNext.hidden = vmCount.hidden = !isImg;
-    if (isImg) { vmI.alt = label || ""; vmShowPage(0); }
+    if (isImg) { vmI.alt = label || ""; vmShowPage(start || 0); }
     else { vmV.src = src; }
     vm.hidden = false; vm.classList.add("open");
     doc.body.classList.add("vm-open");
@@ -290,8 +292,12 @@
   [].forEach.call(doc.querySelectorAll(".rv-card[data-video]"), function (b) {
     b.addEventListener("click", function () { vmOpen(b.getAttribute("data-video"), false); });
   });
-  [].forEach.call(doc.querySelectorAll("[data-lic]"), function (b) {
-    b.addEventListener("click", function () { var im = b.querySelector("img"); vmOpen("", true, im ? im.alt : ""); });
+  [].forEach.call(doc.querySelectorAll("[data-gal]"), function (b) {
+    b.addEventListener("click", function () {
+      gal = GAL[b.getAttribute("data-gal")] || GAL.lic;
+      var im = b.querySelector("img");
+      vmOpen("", true, (im && im.alt) || b.getAttribute("aria-label") || "", +b.getAttribute("data-start") || 0);
+    });
   });
 
   /* ---------- Язык: RU в разметке, KZ подгружается отдельным файлом ---------- */
