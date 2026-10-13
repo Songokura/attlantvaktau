@@ -255,11 +255,22 @@
   }
   var vm = doc.getElementById("vmodal"), vmV = doc.getElementById("vm-video"), vmI = doc.getElementById("vm-img");
   var vmBack = null;
+  var LIC_PAGES = 10, vmPage = 0, vmGallery = false;
+  var vmPrev = vm ? vm.querySelector(".vm-prev") : null, vmNext = vm ? vm.querySelector(".vm-next") : null, vmCount = vm ? vm.querySelector(".vm-count") : null;
+  function vmShowPage(i) {
+    vmPage = clamp(i, 0, LIC_PAGES - 1);
+    vmI.src = "assets/img/license-" + (vmPage + 1) + ".webp";
+    vmCount.textContent = (vmPage + 1) + " / " + LIC_PAGES;
+    vmPrev.disabled = vmPage === 0; vmNext.disabled = vmPage === LIC_PAGES - 1;
+    var nx = new Image(); if (vmPage + 1 < LIC_PAGES) nx.src = "assets/img/license-" + (vmPage + 2) + ".webp";
+  }
   function vmOpen(src, isImg, label) {
     if (!vm) return;
     vmBack = doc.activeElement;
     vmV.hidden = isImg; vmI.hidden = !isImg;
-    if (isImg) { vmI.src = src; vmI.alt = label || ""; }
+    vmGallery = isImg;
+    vmPrev.hidden = vmNext.hidden = vmCount.hidden = !isImg;
+    if (isImg) { vmI.alt = label || ""; vmShowPage(0); }
     else { vmV.src = src; }
     vm.hidden = false; vm.classList.add("open");
     doc.body.classList.add("vm-open");
@@ -278,13 +289,18 @@
   if (vm) {
     vm.querySelector(".vm-close").addEventListener("click", vmClose);
     vm.addEventListener("click", function (e) { if (e.target === vm) vmClose(); });
-    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") vmClose(); });
+    doc.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") vmClose();
+      if (vmGallery && vm.classList.contains("open") && (e.key === "ArrowRight" || e.key === "ArrowLeft")) vmShowPage(vmPage + (e.key === "ArrowRight" ? 1 : -1));
+    });
+    vmPrev.addEventListener("click", function () { vmShowPage(vmPage - 1); });
+    vmNext.addEventListener("click", function () { vmShowPage(vmPage + 1); });
   }
   [].forEach.call(doc.querySelectorAll(".rv-card[data-video]"), function (b) {
     b.addEventListener("click", function () { vmOpen(b.getAttribute("data-video"), false); });
   });
   [].forEach.call(doc.querySelectorAll("[data-lic]"), function (b) {
-    b.addEventListener("click", function () { var im = b.querySelector("img"); vmOpen("assets/img/license.webp", true, im ? im.alt : ""); });
+    b.addEventListener("click", function () { var im = b.querySelector("img"); vmOpen("", true, im ? im.alt : ""); });
   });
 
   /* ---------- Язык: RU в разметке, KZ подгружается отдельным файлом ---------- */

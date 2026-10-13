@@ -420,5 +420,25 @@ html[lang="kk"] .kick{letter-spacing:.12em}
   .rv-card img,.btn,.lnk,.iglink,.arr{transition:none}
   .col{--open:1}
 }
-/* система «текст слева, медиа справа», как на плитах */
-@media (min-width:981px){.bt-tiles{order:-1}.why-list{order:-1}.why-nums{order:-2}}
+/* «лево-право»: «С чем приходят» - фото слева, «Метод» - видео справа, «Почему» - фото слева */
+@media (min-width:981px){.why-list{order:2}.why-ph2{order:1}}
+
+/* листалка страниц лицензии */
+.vm-arr{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(13,47,54,.8);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .2s,transform .16s ease-out}
+.vm-arr:active{transform:scale(.94)}
+.vm-arr:disabled{opacity:.25;cursor:default}
+.vm-arr[hidden],.vm-count[hidden]{display:none}
+.vm-prev{left:max(12px,calc(50% - 470px))}.vm-prev svg{transform:rotate(180deg)}
+.vm-next{right:max(12px,calc(50% - 470px))}
+.vm-count{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:rgba(13,47,54,.85);color:#fff;font:600 14px/1 var(--ft)}
+.vm-box img{max-height:calc(100svh - 110px)}
+@media (max-width:760px){.vm-arr{top:auto;bottom:6px;margin-top:0;width:46px;height:46px}.vm-prev{left:16px}.vm-next{right:16px}.vm-count{bottom:18px}.vmodal{padding-bottom:64px}}
+
+/* «лево-право»: соседние блоки «текст + медиа» чередуют стороны (на телефоне не чередуем) */
+@media (min-width:761px){
+  .plate.flip{--cx:29%}
+  .plate.flip .txt{margin-left:auto}
+  .plate.flip .col{transform:translate(calc(-50% + 90px*(1 - var(--open))),0) scale(calc(1 + (var(--sfin) - 1)*var(--p)))}
+  .plate.flip .bg::after{background:linear-gradient(250deg,var(--deep) 0,rgba(13,47,54,.72) 45%,rgba(13,47,54,.35) 100%)}
+}
+@media (min-width:761px) and (max-width:1120px){.plate.flip{--cx:28%}}
