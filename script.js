@@ -249,8 +249,8 @@
   }
   var vm = doc.getElementById("vmodal"), vmV = doc.getElementById("vm-video"), vmI = doc.getElementById("vm-img");
   var vmBack = null;
-  /* галереи документов: лицензия (10 страниц) и документы врача (5) */
-  var GAL = { lic: { p: [1, 3, 5, 7, 9], path: "assets/img/license-" }, doc: { p: [1, 2, 3, 4, 5], path: "assets/img/doc-" } };
+  /* галереи документов: лицензия (10 страниц) и документы врача (7) */
+  var GAL = { lic: { p: [1, 3, 5, 7, 9], path: "assets/img/license-" }, doc: { p: [1, 2, 3, 4, 5, 6, 7], path: "assets/img/doc-" } };
   var gal = GAL.lic, vmPage = 0, vmGallery = false;
   var vmPrev = vm ? vm.querySelector(".vm-prev") : null, vmNext = vm ? vm.querySelector(".vm-next") : null, vmCount = vm ? vm.querySelector(".vm-count") : null;
   function vmShowPage(i) {
